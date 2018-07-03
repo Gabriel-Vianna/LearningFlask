@@ -9,10 +9,8 @@ class Article(db.Model):
     abstract = db.Column(db.String(50), nullable=False)
     cover = db.Column(db.String(50), nullable=False)
     published_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    author = db.Column(db.String(50), nullable=False)
-    last_modified = db.Column(db.String(50), nullable=False)
-    category = db.Column(db.String(50), nullable=False)
-    published = db.Column(db.String(50), nullable=False)
+    last_modified = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    published = db.Column(db.Boolean, nullable=False)
     slug = db.Column(db.String(50), nullable=False)
 
     category_id = db.Column(db.Integer, db.ForeignKey('category.id'),
@@ -22,17 +20,15 @@ class Article(db.Model):
 
     author_id = db.Column(db.Integer, db.ForeignKey('author.id'),
         nullable=False)
-    author =db.relationship('Category', backref=db.backref('authors',lazy=True))
+    author =db.relationship('Author', backref=db.backref('authors',lazy=True))
 
 
-    def __init__(self,title,text,abstract,cover, published_date, author, last_modified, category, published, slug):
+    def __init__(self,title,text,abstract,cover, author, category, published, slug):
         self.title = title
         self.text = text
         self.abstract = abstract
         self.cover = cover
-        self.published_date = published_date
         self.author = author
-        self.last_modified = last_modified
         self.category = category
         self.published = published
         self.slug = slug
@@ -69,7 +65,7 @@ class Author(db.Model):
          self.bio = bio
 
     def __repr__(self):
-        return '<User %r>' % self.username
+        return self.name
 
 class Category(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -82,6 +78,4 @@ class Category(db.Model):
         return self.name
 
 if __name__ == '__main__':
-    db.session.add(Category(name='esporte'))
-    db.session.add(Category(name='musica'))
-    db.session.commit()
+    pass

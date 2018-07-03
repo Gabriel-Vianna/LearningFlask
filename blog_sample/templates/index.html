@@ -22,9 +22,9 @@
             <tbody>
             {% for artigo in artigos %}
                             <tr>
-                                <td> <a href="{{url_for('details', slug =artigo.slug)}}">{{ artigo.title }}</a></td>
-                                <td> <a href="{{url_for('details', slug ='artigo.slug')}}">{{ artigo.category }}</a></td>
-                                <td> <a href="{{url_for('details', slug ='artigo.slug')}}">{{ artigo.author }}</a></td>
+                                <td> <a href="{{url_for('article_details', slug =artigo.slug)}}">{{ artigo.title }}</a></td>
+                                <td> <a href="{{url_for('category_details', category =artigo.category)}}">{{ artigo.category }}</a></td>
+                                <td> <a href="{{url_for('author_details', author =artigo.author)}}">{{ artigo.author }}</a></td>
                             </tr>
             {% endfor %}
             </tbody>

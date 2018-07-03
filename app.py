@@ -1,12 +1,6 @@
 from blog_sample.views import flaskapp, db
-from blog_sample.models import Category
+from blog_sample.models import Category, Author, Article
 
 
 if __name__ == '__main__':
-    #flaskapp.run(debug=True)
-
-
-    # db.session.add(Category(name='esporte'))
-    # db.session.add(Category(name='musica'))
-    # db.session.commit()
-    print(Category.query.all())
+    flaskapp.run(debug=True)
