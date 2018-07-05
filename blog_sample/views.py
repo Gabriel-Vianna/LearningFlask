@@ -23,7 +23,7 @@ def article_details(slug):
     for i in range(len(artigos)):
         if slug == artigos[i].slug:
             artigo_detalhe = artigos[i]
-            return render_template('details.html', artigo = artigo_detalhe)
+            return render_template('article_details.html', artigo = artigo_detalhe)
     return redirect('/404')
 
 @flaskapp.route("/blog/<category>")
