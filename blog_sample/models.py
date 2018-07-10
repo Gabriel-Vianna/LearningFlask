@@ -23,7 +23,7 @@ class Article(db.Model):
     author =db.relationship('Author', backref=db.backref('authors',lazy=True))
 
 
-    def __init__(self,title,text,abstract,cover, author, category, published, slug):
+    def __init__(self,title=None,text=None,abstract=None,cover=None, author=None, category=None, published=None, slug=None, field=None):
         self.title = title
         self.text = text
         self.abstract = abstract
@@ -41,14 +41,6 @@ class Article(db.Model):
     def __repr__(self):
         return self.title
 
-"""class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True, nullable=False)
-    email = db.Column(db.String(120), unique=True, nullable=False)
-
-    def __repr__(self):
-        return '<User %r>' % self.username"""
-
 class Author(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(80), unique=True, nullable=False)
@@ -57,7 +49,7 @@ class Author(db.Model):
     photo = db.Column(db.String(120), unique=False, nullable=False)
     bio = db.Column(db.String(300), unique=False, nullable=False)
 
-    def __init__(self, name, email, website, photo, bio):
+    def __init__(self, name='', email='', website='', photo='', bio='', lista=[], field=None):
          self.name = name
          self.email = email
          self.website = website
@@ -71,7 +63,7 @@ class Category(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), unique=True, nullable=False)
 
-    def __init__(self, name):
+    def __init__(self, name='', lista=[], field=None):
         self.name = name
 
     def __repr__(self):

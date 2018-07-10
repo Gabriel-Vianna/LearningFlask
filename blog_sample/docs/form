@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Formulário Autor</title>
+  </head>
+  <body>
+    <form action="/form" method="post">
+      <fieldset>
+        <div class="form-group">
+          <label for="name"><label for="name">Nome</label></label>
+          <input class="form-control" id="email" name="name" required type="text" value="">
+          
+        </div>
+        <div class="form-group">
+          <label for="email"><label for="email">Email</label></label>
+          <input class="form-control" id="email" name="email" required type="text" value="">
+          
+        </div>
+        <div class="form-group">
+          <label for="website"><label for="website">Website</label></label>
+          <input class="form-control" id="email" name="website" required type="text" value="">
+          
+        </div>
+        <div class="form-group">
+          <label for="photo"><label for="photo">Foto</label></label>
+          <input class="form-control" id="email" name="photo" required type="text" value="">
+          
+        </div>
+        <div class="form-group">
+          <label for="bio"><label for="bio">Bio</label></label>
+          <textarea class="form-control" id="email" name="bio" required></textarea>
+          
+        </div>
+        <button type="submit" name="salvar" class="btn btn-primary btn-salvar">Salvar</button>
+      </fieldset>
+    </form>
+
+  </body>
+</html>
