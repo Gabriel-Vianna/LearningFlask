@@ -65,7 +65,7 @@
                    <div class="about-fixed">
 
                      <div class="my-pic">
-                        <img src="{{url_for('static', filename='images/pic/luke.jpeg')}}" alt="">
+                        <img src="{{url_for('static', filename='images/blog/blog_profile.jpg')}}" alt="">
                         <a href="javascript:void(0)" class="collapsed" data-target="#menu" data-toggle="collapse"><i class="icon-menu menu"></i></a>
                          <div id="menu" class="collapse">
                            <ul class="menu-link">
@@ -81,8 +81,8 @@
                       <div class="my-detail">
 
                         <div class="white-spacing">
-                            <h1>Gabriel Vianna</h1>
-                            <span>Web Developer</span>
+                            <h1>My Share</h1>
+                            <span>Blog Pessoal</span>
                         </div>
 
                        <ul class="social-icon">
@@ -119,14 +119,14 @@
                                 <!-- Blog Post Start -->
                                 {% for artigo in artigos %}
                                 <div class="col-md-12 blog-post">
-                                    <div class="post-title">
-                                      <a href="{{url_for('article_details', slug =artigo.slug)}}"><h1>{{artigo.title}}</h1></a>
-                                    </div>
-                                    <div class="post-info">
-                                    	<span>{{artigo.published_date}} / by <a href="{{url_for('author_details', author =artigo.author.name)}}">{{artigo.author}}</a></span>
-                                    </div>
-                                    <p>{{artigo.abstract}}</p>
-                                    <a href="{{url_for('article_details', slug =artigo.slug)}}" class="button button-style button-anim fa fa-long-arrow-right"><span>Leia Mais</span></a>
+                                  <div class="post-info">
+                                  <span>{{artigo.category.name}} / by <a href="{{url_for('author_details', author =artigo.author.name)}}">{{artigo.author}}</a></span>
+                                  </div>
+                                  <div class="post-title">
+                                  <a href="{{url_for('article_details', slug =artigo.slug)}}"><h1>{{artigo.title}}</h1></a>
+                                  </div>
+                                  <p>{{artigo.abstract}}</p>
+                                  <a href="{{url_for('article_details', slug =artigo.slug)}}" class="button button-style button-anim fa fa-long-arrow-right"><span>Leia Mais</span></a>
                                 </div>
                                 <!-- Blog Post End -->
                                 {% endfor %}
@@ -165,7 +165,7 @@
                        <div class="col-md-12 page-body margin-top-50 footer">
                           <footer>
                           <ul class="menu-link">
-                               <li><a href="index.html">Página Inicial</a></li>
+                               <li><a href="/">Página Inicial</a></li>
                           </ul>
 
                           <p>© Copyright 2016 DevBlog. All rights reserved</p>

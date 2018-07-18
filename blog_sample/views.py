@@ -22,6 +22,7 @@ def index():
 @flaskapp.route("/blog/<slug>")
 def article_details(slug):
     artigos = Article.query.all()
+    # criar função para gerar sugestões de artigos 
     for i in range(len(artigos)):
         if slug == artigos[i].slug:
             artigo_detalhe = artigos[i]
@@ -50,22 +51,22 @@ def author_details(author):
 def error_404():
     return render_template("404.html")
 
-@flaskapp.route("/form", methods=['GET','POST'])
-def form():
-    author_form = AuthorForm()
-    if author_form.validate_on_submit():
-        print('oi')
-        name = author_form.name.data
-        email = author_form.email.data
-        website = author_form.website.data
-        photo = author_form.photo.data
-        bio = author_form.bio.data
-        return redirect(url_for('form'))
+# @flaskapp.route("/form", methods=['GET','POST'])
+# def form():
+#     author_form = AuthorForm()
+#     if author_form.validate_on_submit():
+#         print('oi')
+#         name = author_form.name.data
+#         email = author_form.email.data
+#         website = author_form.website.data
+#         photo = author_form.photo.data
+#         bio = author_form.bio.data
+#         return redirect(url_for('form'))
 
         # db.session.add(Author(name=name,email=email,website=website=,photo=photo,bio=bio))
 
 
-    return render_template("formulário.html", form = author_form)
+    # return render_template("formulário.html", form = author_form)
 
 @flaskapp.route("/uploads/<path:filename>")
 def uploads(filename):
